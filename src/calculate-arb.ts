@@ -29,7 +29,55 @@ const HIGH_WATER_MARK = 5000;
 // rough ratio usdc (in decimals) to sol (in lamports) used in priority queue
 // assuming 1 sol = 20 usdc and 1 sol has 3 more decimals than usdc
 // this means one unit of usdc equals x units of sol
-const USDC_SOL_RATO = 50n;
+let USDC_SOL_RATO = 50n;
+
+// Background task to keep the price ratio updated dynamically from live pool state
+async function startRatioUpdater() {
+  // Let the system finish initialization before starting our queries
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
+  const usdcToSolMkt = getMarketsForPair(
+    'So11111111111111111111111111111111111111112', // SOL
+    'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
+  ).filter((market) => market.id === '7qbRF6YsyGuLUVs6Y1q64bdVrfe4ZcUUz1JRdoVNUJnm')[0];
+
+  if (!usdcToSolMkt) {
+    logger.warn('Could not find SOL/USDC market for price updates, using fallback ratio.');
+    return;
+  }
+
+  const update = async () => {
+    try {
+      const serializableRoute = [{
+        sourceMint: 'So11111111111111111111111111111111111111112',
+        destinationMint: 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v',
+        amount: '1000000000', // 1 SOL (10^9 lamports)
+        marketId: usdcToSolMkt.id,
+        tradeOutputOverride: null,
+      }];
+      const quote = await workerCalculateRoute(serializableRoute, 5000);
+      if (quote) {
+        const quoteOutBigInt = BigInt(quote.out.toString());
+        if (quoteOutBigInt > 0n) {
+          // Ratio = 10^9 / outAmount
+          const newRatio = 1000000000n / quoteOutBigInt;
+          if (newRatio > 0n) {
+            USDC_SOL_RATO = newRatio;
+            const solPriceEst = Number(quoteOutBigInt) / 1000000;
+            logger.info(`Dynamic USDC_SOL_RATO updated: ${USDC_SOL_RATO} (SOL Price: ~$${solPriceEst.toFixed(2)})`);
+          }
+        }
+      }
+    } catch (e) {
+      logger.error(`Error updating SOL/USDC ratio: ${e}`);
+    }
+  };
+
+  await update();
+  setInterval(update, 30000); // Update every 30 seconds
+}
+
+startRatioUpdater().catch((e) => logger.error('Ratio updater failed', e));
 const MAX_TRADE_AGE_MS = 200;
 
 type Route = {
