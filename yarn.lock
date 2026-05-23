@@ -1083,7 +1083,7 @@
     tiny-invariant "^1.2.0"
     tslib "^2.4.0"
 
-"@cykura/sdk-core@npm:@jup-ag/cykura-sdk-core@0.1.8", "@jup-ag/cykura-sdk-core@0.1.8":
+"@cykura/sdk-core@npm:@jup-ag/cykura-sdk-core@0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@jup-ag/cykura-sdk-core/-/cykura-sdk-core-0.1.8.tgz#ba8724644e18d1006422dbba5c7701360a729b91"
   integrity sha512-bVtDA4oEuzj/amuTPVlk1OFpdlYKK6H9nKWg6Tv6mn6MydS/ArC2EY2zuMHtWP+1YJ5CAwxHL/7Kl1k+7XBSoQ==
@@ -1112,7 +1112,7 @@
   resolved "https://registry.yarnpkg.com/@datastructures-js/queue/-/queue-4.2.3.tgz#a63b155e2c1634c9b9d8fcd83969c7b3e143dff7"
   integrity sha512-GWVMorC/xi2V2ta+Z/CPgPGHL2ZJozcj48g7y2nIX5GIGZGRrbShSHgvMViJwHJurUzJYOdIdRZnWDRrROFwJA==
 
-"@dradex/idl@npm:@jup-ag/dradex-idl@0.2.1", "@jup-ag/dradex-idl@0.2.1":
+"@dradex/idl@npm:@jup-ag/dradex-idl@0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@jup-ag/dradex-idl/-/dradex-idl-0.2.1.tgz#36cf9a75ca9712c0a588b6c0050744eab3a46c49"
   integrity sha512-CZ5GZTLExy1+fw/tFOo6C4AbU0o/PcqJxxQpDp5UkSJ0SXbz7ZGMz9DfKu+htJuAwxwGgS/rbQfeBoU9fhDXuQ==
@@ -1614,6 +1614,18 @@
     decimal.js "^10.3.1"
     jsbi "^4.3.0"
 
+"@jup-ag/cykura-sdk-core@0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@jup-ag/cykura-sdk-core/-/cykura-sdk-core-0.1.8.tgz#ba8724644e18d1006422dbba5c7701360a729b91"
+  integrity sha512-bVtDA4oEuzj/amuTPVlk1OFpdlYKK6H9nKWg6Tv6mn6MydS/ArC2EY2zuMHtWP+1YJ5CAwxHL/7Kl1k+7XBSoQ==
+  dependencies:
+    "@project-serum/anchor" "^0.22.0"
+    big.js "^5.2.2"
+    decimal.js "^10.3.1"
+    jsbi "^4.1.0"
+    tiny-invariant "^1.1.0"
+    toformat "^2.0.0"
+
 "@jup-ag/cykura-sdk@0.1.25":
   version "0.1.25"
   resolved "https://registry.yarnpkg.com/@jup-ag/cykura-sdk/-/cykura-sdk-0.1.25.tgz#03b73f9bb580cccb02e6240e43562330e0f396b6"
@@ -1635,6 +1647,14 @@
     bigint-buffer "^1.1.5"
     bignumber.js "^9.1.0"
     bn.js "^5.2.0"
+
+"@jup-ag/dradex-idl@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@jup-ag/dradex-idl/-/dradex-idl-0.2.1.tgz#36cf9a75ca9712c0a588b6c0050744eab3a46c49"
+  integrity sha512-CZ5GZTLExy1+fw/tFOo6C4AbU0o/PcqJxxQpDp5UkSJ0SXbz7ZGMz9DfKu+htJuAwxwGgS/rbQfeBoU9fhDXuQ==
+  dependencies:
+    "@solana/buffer-layout" "4.0.0"
+    bn.js "5.2.1"
 
 "@jup-ag/dradex-sdk@0.2.3":
   version "0.2.3"
@@ -2674,7 +2694,7 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/spl-token-3@npm:@solana/spl-token@~0.3", "@solana/spl-token@0.3.7", "@solana/spl-token@^0.3.4", "@solana/spl-token@^0.3.5", "@solana/spl-token@^0.3.6", "@solana/spl-token@^0.3.7":
+"@solana/spl-token-3@npm:@solana/spl-token@~0.3":
   version "0.3.7"
   resolved "https://registry.yarnpkg.com/@solana/spl-token/-/spl-token-0.3.7.tgz#6f027f9ad8e841f792c32e50920d9d2e714fc8da"
   integrity sha512-bKGxWTtIw6VDdCBngjtsGlKGLSmiu/8ghSt/IOYJV24BsymRbgq7r12GToeetpxmPaZYLddKwAz7+EwprLfkfg==
@@ -2708,6 +2728,15 @@
     buffer "6.0.3"
     buffer-layout "^1.2.0"
     dotenv "10.0.0"
+
+"@solana/spl-token@0.3.7", "@solana/spl-token@^0.3.4", "@solana/spl-token@^0.3.5", "@solana/spl-token@^0.3.6", "@solana/spl-token@^0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@solana/spl-token/-/spl-token-0.3.7.tgz#6f027f9ad8e841f792c32e50920d9d2e714fc8da"
+  integrity sha512-bKGxWTtIw6VDdCBngjtsGlKGLSmiu/8ghSt/IOYJV24BsymRbgq7r12GToeetpxmPaZYLddKwAz7+EwprLfkfg==
+  dependencies:
+    "@solana/buffer-layout" "^4.0.0"
+    "@solana/buffer-layout-utils" "^0.2.0"
+    buffer "^6.0.3"
 
 "@solana/spl-token@^0.2.0":
   version "0.2.0"
@@ -3558,7 +3587,7 @@ bn.js@5.2.0:
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
   integrity sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==
 
-bn.js@5.2.1, bn.js@^5.0.0, bn.js@^5.1.0, bn.js@^5.1.2, bn.js@^5.2.0, bn.js@^5.2.1:
+bn.js@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.1.tgz#0bc527a6a0d18d0aa8d5b0538ce4a77dccfa7b70"
   integrity sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==
@@ -3567,6 +3596,11 @@ bn.js@^4.0.0, bn.js@^4.11.9:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.12.0.tgz#775b3f278efbb9718eec7361f483fb36fbbfea88"
   integrity sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==
+
+bn.js@^5.0.0, bn.js@^5.1.0, bn.js@^5.1.2, bn.js@^5.2.0, bn.js@^5.2.1, bn.js@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.2.3.tgz#16a9e409616b23fef3ccbedb8d42f13bff80295e"
+  integrity sha512-EAcmnPkxpntVL+DS7bO1zhcZNvCkxqtkd0ZY53h06GNQ3DEkkGZ/gKgmDv6DdZQGj9BgfSPKtJJ7Dp1GPP8f7w==
 
 borsh@^0.4.0:
   version "0.4.0"
